@@ -4,8 +4,8 @@ import Home from "../Home";
 import ShopList from "../ShopList";
 import ShopDetail from "../ShopDetail";
 import { StyleSheet } from "react-native";
-import { Center } from "native-base";
-import { right } from "styled-system";
+import Settings from "../icons/Settings";
+import Title from "../icons/Title";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -30,7 +30,7 @@ const Navigation = () => {
       <Screen
         name="Home"
         component={Home}
-        options={{ title: "Welcome to our app" }}
+        options={{ title: "Welcome to our app", headerTitle: () => <Title /> }}
       />
       <Screen
         name="ShopList"
@@ -40,6 +40,7 @@ const Navigation = () => {
             backgroundColor: "#ffd1dc",
           },
           title: "Shops",
+          headerRight: () => <Settings />,
         }}
       />
       <Screen
