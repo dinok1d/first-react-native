@@ -16,7 +16,7 @@ const Navigation = () => {
   // Screen -------- Screen gives every component a props called navigation
   return (
     <Navigator
-      initialRouteName="Home"
+      initialRouteName="CartList"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
