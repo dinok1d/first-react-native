@@ -4,8 +4,10 @@ import Home from "../Home";
 import ShopList from "../ShopList";
 import ShopDetail from "../ShopDetail";
 import { StyleSheet } from "react-native";
-import Settings from "../icons/Settings";
+
 import Title from "../icons/Title";
+import CartList from "../CartList";
+import Cart from "../icons/Cart";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -35,24 +37,23 @@ const Navigation = () => {
       <Screen
         name="ShopList"
         component={ShopList}
-        options={{
-          headerStyle: {
-            backgroundColor: "#ffd1dc",
-          },
+        options={({ navigation }) => ({
           title: "Shops",
-          headerRight: () => <Settings />,
-        }}
+          headerRight: () => <Cart navigation={navigation} />,
+        })}
       />
       <Screen
         name="ShopDetail"
         component={ShopDetail}
-        options={({ route }) => {
+        options={({ navigation, route }) => {
           const { shop } = route.params;
           return {
             title: shop.name,
+            headerRight: () => <Cart navigation={navigation} />,
           };
         }} // this line of code has made the title = shop.name which comes to us from params
       />
+      <Screen name="CartList" component={CartList} />
     </Navigator>
   );
 };
