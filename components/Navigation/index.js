@@ -1,9 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../Home";
-import ShopList from "../ShopList";
-import ShopDetail from "../ShopDetail";
-import { StyleSheet } from "react-native";
+import Home from "../Home/";
+import ShopList from "../ShopList/";
+import ShopDetail from "../ShopDetail/";
+import { StyleSheet } from "react-native/";
 
 import Title from "../icons/Title";
 import CartList from "../CartList";
@@ -16,7 +16,7 @@ const Navigation = () => {
   // Screen -------- Screen gives every component a props called navigation
   return (
     <Navigator
-      initialRouteName="CartList"
+      initialRouteName="ShopList"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -32,7 +32,10 @@ const Navigation = () => {
       <Screen
         name="Home"
         component={Home}
-        options={{ title: "Welcome to our app", headerTitle: () => <Title /> }}
+        options={{
+          title: "Welcome to our app",
+          headerTitle: () => <Title />,
+        }}
       />
       <Screen
         name="ShopList"

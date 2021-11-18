@@ -11,12 +11,10 @@ import cartStore from "../stores/cartStore";
 const CartItem = ({ item }) => {
   console.log(item);
   const [quantity, setQuantity] = useState(item.quantity);
-  const handeAdd = () => {
-    const newItem = {
-      product: item.product,
-      quantity: quantity,
-    };
-    cartStore.addItemToCart(newItem);
+  const handeAdd = (value) => {
+    // to add items to cart
+    setQuantity(value);
+    cartStore.addItemToCart(item.product, value); // value here is to make sure we get the latest value of the item
   };
   return (
     <HStack w="100%" alignItems="center" space="3">
@@ -27,19 +25,21 @@ const CartItem = ({ item }) => {
       />
 
       <Text>{item.product.name}</Text>
+
       <Text>{item.quantity} left</Text>
+
       <Text>{item.product.price} KD</Text>
       <Text>{item.quantity * item.product.price} KD</Text>
       <NumericInput
+        totalWidth={40}
+        totalHeight={40}
+        minValue={1}
+        maxValue={item.product.quantity}
         type="up-down"
-        value={quantity.value}
-        maxValue={item.quantity}
-        onChange={(value) => setQuantity(value)}
-        totalWidth={100}
-        totalHeight={50}
+        value={quantity}
+        onChange={(value) => handeAdd(value)} // the on change is changing the setQuantity via value
       />
-
-      <Button onPress={handeAdd}>add Items</Button>
+      {/* <Button onPress={handeAdd}>add Items</Button> */}
     </HStack>
   );
 };
