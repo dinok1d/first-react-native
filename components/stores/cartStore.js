@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { AsyncStorage } from "react-native";
+// import { AsyncStorage } from "react-native";
 
 class CartStore {
   items = [
@@ -45,6 +45,22 @@ class CartStore {
       this.items.push(newItem);
     }
   };
+
+  removeItem = (productId) => {
+    this.items = this.items.filter((item) => item.product._id !== productId);
+  }; // to delete the item based on their ID
+
+
+  checkout = () => {
+    this.items = []
+    alert("Thank you for shopping")
+
+  }
+
+
+
+
+
 
   //  await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
 

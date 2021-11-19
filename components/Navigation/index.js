@@ -1,10 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../Home/";
-import ShopList from "../ShopList/";
-import ShopDetail from "../ShopDetail/";
 import { StyleSheet } from "react-native/";
-
+import Home from "../Home/";
+import ShopList from "../ShopList";
+import ShopDetail from "../ShopDetail";
 import Title from "../icons/Title";
 import CartList from "../CartList";
 import Cart from "../icons/Cart";

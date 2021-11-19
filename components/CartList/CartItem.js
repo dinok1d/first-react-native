@@ -7,6 +7,7 @@ import { Text, Image } from "react-native";
 
 import { baseURL } from "../stores/instance";
 import cartStore from "../stores/cartStore";
+import ItemDelete from "../icons/ItemDelete";
 
 const CartItem = ({ item }) => {
   console.log(item);
@@ -39,7 +40,8 @@ const CartItem = ({ item }) => {
         value={quantity}
         onChange={(value) => handeAdd(value)} // the on change is changing the setQuantity via value
       />
-      {/* <Button onPress={handeAdd}>add Items</Button> */}
+      {/* <Button onPress={handeAdd}>delete</Button> */}
+      <ItemDelete productId={item.product._id} />
     </HStack>
   );
 };
