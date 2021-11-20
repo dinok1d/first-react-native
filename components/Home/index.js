@@ -14,18 +14,19 @@ const Home = ({ navigation }) => {
         justifyContent: "center",
       }}
     >
-      <Text style={{ color: "#000", fontSize: "38px", textAlign: "center" }}>
+      <Text style={{ color: "#000", fontSize: 40, textAlign: "center" }}>
         Home Page
       </Text>
       <Button
         onPress={() => {
-          navigation.navigate("ShopList"); // ShopList has to be a string and exactly spelt like the title of the previous name
+          navigation.navigate("ShopList");
         }}
-      >
-        Shop List
-      </Button>
+        title="press me"
+      ></Button>
     </View>
   );
 };
+// ShopList has to be a string and exactly spelt like the title of the
+//  previous name Shop List
 
 export default Home;

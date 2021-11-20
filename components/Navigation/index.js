@@ -7,6 +7,10 @@ import ShopDetail from "../ShopDetail";
 import Title from "../icons/Title";
 import CartList from "../CartList";
 import Cart from "../icons/Cart";
+import Signin from "../Auth/Signin";
+import Signup from "../Auth/Signup";
+
+// i stopped at 60 mins
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -15,7 +19,7 @@ const Navigation = () => {
   // Screen -------- Screen gives every component a props called navigation
   return (
     <Navigator
-      initialRouteName="ShopList"
+      initialRouteName="Home"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -56,6 +60,16 @@ const Navigation = () => {
         }} // this line of code has made the title = shop.name which comes to us from params
       />
       <Screen name="CartList" component={CartList} />
+      <Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Signup"
+        component={Signup}
+        options={{ headerShown: false }}
+      />
     </Navigator>
   );
 };
