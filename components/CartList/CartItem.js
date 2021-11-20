@@ -2,6 +2,7 @@ import React from "react";
 import NumericInput from "react-native-numeric-input";
 import { Button, HStack } from "native-base";
 import { useState } from "react";
+import { observer } from "mobx-react";
 
 import { Text, Image } from "react-native";
 
@@ -12,7 +13,7 @@ import ItemDelete from "../icons/ItemDelete";
 const CartItem = ({ item }) => {
   console.log(item);
   const [quantity, setQuantity] = useState(item.quantity);
-  const handeAdd = (value) => {
+  const handleAdd = (value) => {
     // to add items to cart
     setQuantity(value);
     cartStore.addItemToCart(item.product, value); // value here is to make sure we get the latest value of the item
@@ -38,7 +39,7 @@ const CartItem = ({ item }) => {
         maxValue={item.product.quantity}
         type="up-down"
         value={quantity}
-        onChange={(value) => handeAdd(value)} // the on change is changing the setQuantity via value
+        onChange={(value) => handleAdd(value)} // the on change is changing the setQuantity via value
       />
       {/* <Button onPress={handeAdd}>delete</Button> */}
       <ItemDelete productId={item.product._id} />
@@ -47,4 +48,4 @@ const CartItem = ({ item }) => {
 };
 // HStack is horizontal stack
 // Vstack is vertical stack
-export default CartItem;
+export default observer(CartItem);
